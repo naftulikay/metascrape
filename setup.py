@@ -10,6 +10,7 @@ setup(
     install_requires = [
         "setuptools",
         "scrapy",
+        "tzlocal",
     ],
     entry_points = {
         "console_scripts": [

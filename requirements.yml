@@ -1,4 +1,6 @@
 ---
+- name: terraform
+  src: naftulikay.terraform
 - name: vagrant-docker
   src: naftulikay.vagrant-docker
 - name: vagrant-python-dev

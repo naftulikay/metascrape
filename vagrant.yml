@@ -3,6 +3,17 @@
   hosts: all
   become: true
   roles:
+    - role: terraform
+      version: 0.12.4
     - role: vagrant-docker
     - role: vagrant-python-dev
       python_version: 3.7.4
+  tasks:
+    - name: allow aws environment variables across the wire
+      lineinfile:
+        dest: /etc/ssh/sshd_config
+        line: AcceptEnv AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN
+      notify: restart ssh
+  handlers:
+    - name: restart ssh
+      service: name=sshd state=restarted

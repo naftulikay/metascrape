@@ -1,0 +1,8 @@
+aws/keys/*
+azure/keys/*
+gcp/keys/*
+
+.terraform
+*.tfstate
+*.tfstate.backup*
+*.tfstate.lock*
