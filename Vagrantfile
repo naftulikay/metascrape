@@ -17,6 +17,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # using a specific IP.
   config.vm.network "private_network", type: "dhcp"
 
+# forward AWS environment variables across the wire
+  config.ssh.forward_env = ["AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY", "AWS_SESSION_TOKEN"]
+
   # Tweak the VMs configuration.
   config.vm.provider "virtualbox" do |vb|
     vb.cpus = Etc.nprocessors
